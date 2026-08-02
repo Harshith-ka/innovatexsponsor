@@ -100,7 +100,7 @@
   }
   ::selection {
     background: rgba(240, 180, 41, 0.32);
-    color: white;
+    color: var(--foreground);
   }
 }
 
@@ -112,14 +112,14 @@
 }
 
 @utility glass {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 209, 102, 0.05), rgba(255, 122, 69, 0.025));
+  border: 1px solid rgba(255, 236, 200, 0.1);
   backdrop-filter: blur(16px) saturate(140%);
 }
 
 @utility gradient-border {
   position: relative;
-  background: linear-gradient(180deg, rgba(13, 18, 36, 0.9), rgba(13, 18, 36, 0.6));
+  background: linear-gradient(180deg, rgba(20, 17, 13, 0.9), rgba(20, 17, 13, 0.6));
   border: 1px solid transparent;
   background-clip: padding-box;
 

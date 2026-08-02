@@ -72,7 +72,7 @@ function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/70 backdrop-blur-xl border-b border-white/10"
+          ? "bg-background/70 backdrop-blur-xl border-b border-[rgba(255,236,200,0.12)]"
           : "bg-transparent"
       }`}
     >
@@ -82,7 +82,7 @@ function Navbar() {
       >
         <a href="#home" className="flex items-center gap-2 group">
           <div className="relative h-9 w-9 rounded-xl bg-[var(--gradient-brand)] grid place-items-center shadow-[var(--shadow-glow)]">
-            <Code2 className="h-5 w-5 text-white" />
+            <Code2 className="h-5 w-5 text-primary-foreground" />
           </div>
           <div className="leading-tight">
             <div className="text-sm font-bold tracking-tight">SRM InnovateX</div>
@@ -108,7 +108,7 @@ function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition"
+            className="group relative inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-primary-foreground bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition"
           >
             Become Sponsor
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -117,7 +117,7 @@ function Navbar() {
 
         <button
           type="button"
-          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground hover:bg-white/5"
+          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground hover:bg-[rgba(240,180,41,0.08)]"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -132,7 +132,7 @@ function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden overflow-hidden border-t border-white/10 bg-background/95 backdrop-blur-xl"
+            className="lg:hidden overflow-hidden border-t border-[rgba(255,236,200,0.12)] bg-background/95 backdrop-blur-xl"
           >
             <ul className="px-6 py-4 flex flex-col gap-1">
               {NAV.map((n) => (
@@ -140,7 +140,7 @@ function Navbar() {
                   <a
                     href={n.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-md px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-white/5"
+                    className="block rounded-md px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-[rgba(240,180,41,0.08)]"
                   >
                     {n.label}
                   </a>
@@ -149,7 +149,7 @@ function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white bg-[var(--gradient-brand)]"
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-primary-foreground bg-[var(--gradient-brand)]"
               >
                 Become Sponsor <ArrowRight className="h-4 w-4" />
               </a>
@@ -190,7 +190,7 @@ function Hero() {
         className="pointer-events-none absolute inset-0 opacity-[0.08]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+            "linear-gradient(rgba(240,180,41,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(240,180,41,0.5) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
           maskImage: "radial-gradient(ellipse at top, black 30%, transparent 75%)",
         }}
@@ -239,14 +239,14 @@ function Hero() {
           >
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition"
+              className="group inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-primary-foreground bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition"
             >
               Become a Sponsor
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
               href="#packages"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-foreground glass hover:bg-white/[0.06] transition"
+              className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-foreground glass hover:bg-[rgba(240,180,41,0.08)] transition"
             >
               <Download className="h-4 w-4" />
               Download Brochure
@@ -263,13 +263,13 @@ function Hero() {
               {["A", "B", "C", "D"].map((l, i) => (
                 <div
                   key={l}
-                  className="h-8 w-8 rounded-full ring-2 ring-background grid place-items-center text-[10px] font-bold text-white"
+                  className="h-8 w-8 rounded-full ring-2 ring-background grid place-items-center text-[10px] font-bold text-primary-foreground"
                   style={{
                     background: [
-                      "linear-gradient(135deg,#6d5ef9,#4f9dff)",
-                      "linear-gradient(135deg,#7b61ff,#22c55e)",
-                      "linear-gradient(135deg,#4f9dff,#7b61ff)",
-                      "linear-gradient(135deg,#22c55e,#6d5ef9)",
+                      "linear-gradient(135deg,#f0b429,#ff9f1c)",
+                      "linear-gradient(135deg,#ffd166,#ff7a45)",
+                      "linear-gradient(135deg,#ff9f1c,#ffd166)",
+                      "linear-gradient(135deg,#ff7a45,#f0b429)",
                     ][i],
                   }}
                 >
@@ -306,7 +306,7 @@ function Hero() {
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
             <div className="h-8 w-8 rounded-lg bg-[var(--gradient-brand)] grid place-items-center">
-              <Code2 className="h-4 w-4 text-white" />
+              <Code2 className="h-4 w-4 text-primary-foreground" />
             </div>
             <div className="text-xs">
               <div className="font-semibold">AI Track</div>
@@ -320,7 +320,7 @@ function Hero() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
           >
             <div className="h-8 w-8 rounded-lg bg-[var(--gradient-brand)] grid place-items-center">
-              <Trophy className="h-4 w-4 text-white" />
+              <Trophy className="h-4 w-4 text-primary-foreground" />
             </div>
             <div className="text-xs">
               <div className="font-semibold">₹50K+ Prize</div>
@@ -478,7 +478,7 @@ function WhySponsor() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-white/10 via-white/5 to-transparent glow-hover"
+              className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-[rgba(240,180,41,0.35)] via-[rgba(255,122,69,0.12)] to-transparent glow-hover"
             >
               <div className="relative h-full rounded-2xl bg-card p-6 overflow-hidden">
                 <div
@@ -487,7 +487,7 @@ function WhySponsor() {
                 />
                 <div className="relative">
                   <div className="h-11 w-11 rounded-xl bg-[var(--gradient-brand)] grid place-items-center shadow-[var(--shadow-glow)]">
-                    <w.icon className="h-5 w-5 text-white" />
+                    <w.icon className="h-5 w-5 text-primary-foreground" />
                   </div>
                   <h3 className="mt-5 text-lg font-semibold">{w.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{w.body}</p>
@@ -578,7 +578,7 @@ function About() {
             </div>
           </div>
 
-          <ol className="relative border-l border-white/10 pl-6 space-y-8">
+          <ol className="relative border-l border-[rgba(255,236,200,0.12)] pl-6 space-y-8">
             {ABOUT_STEPS.map((s, i) => (
               <motion.li
                 key={s.title}
@@ -589,7 +589,7 @@ function About() {
                 className="relative"
               >
                 <span className="absolute -left-[34px] top-1 grid h-6 w-6 place-items-center rounded-full bg-[var(--gradient-brand)] ring-4 ring-background">
-                  <s.icon className="h-3 w-3 text-white" />
+                  <s.icon className="h-3 w-3 text-primary-foreground" />
                 </span>
                 <h3 className="text-lg font-semibold">{s.title}</h3>
                 <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{s.body}</p>
@@ -687,12 +687,12 @@ function Packages() {
               className={`relative rounded-3xl p-[1px] ${
                 p.highlight
                   ? "bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)]"
-                  : "bg-gradient-to-b from-white/10 to-white/5"
+                  : "bg-gradient-to-b from-[rgba(240,180,41,0.25)] to-[rgba(255,122,69,0.08)]"
               }`}
             >
               <div className="relative h-full rounded-3xl bg-card p-6 flex flex-col">
                 {p.highlight && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[var(--gradient-brand)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-[var(--shadow-glow)]">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[var(--gradient-brand)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-[var(--shadow-glow)]">
                     Most Popular
                   </span>
                 )}
@@ -717,8 +717,8 @@ function Packages() {
                   href="#contact"
                   className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition ${
                     p.highlight
-                      ? "bg-[var(--gradient-brand)] text-white hover:brightness-110 shadow-[var(--shadow-glow)]"
-                      : "glass text-foreground hover:bg-white/[0.06]"
+                      ? "bg-[var(--gradient-brand)] text-primary-foreground hover:brightness-110 shadow-[var(--shadow-glow)]"
+                      : "glass text-foreground hover:bg-[rgba(240,180,41,0.08)]"
                   }`}
                 >
                   {p.cta}
@@ -771,7 +771,7 @@ function Benefits() {
               className="glass rounded-2xl p-5 flex flex-col items-start gap-3 glow-hover"
             >
               <div className="h-10 w-10 rounded-xl bg-[var(--gradient-brand)] grid place-items-center">
-                <b.icon className="h-4 w-4 text-white" />
+                <b.icon className="h-4 w-4 text-primary-foreground" />
               </div>
               <div className="text-sm font-medium">{b.label}</div>
             </motion.div>
@@ -808,7 +808,7 @@ function Timeline() {
         <div className="mt-16 relative">
           <div
             aria-hidden
-            className="absolute left-0 right-0 top-8 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent hidden lg:block"
+            className="absolute left-0 right-0 top-8 h-px bg-gradient-to-r from-transparent via-[rgba(240,180,41,0.35)] to-transparent hidden lg:block"
           />
           <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {TIMELINE.map((t, i) => (
@@ -821,7 +821,7 @@ function Timeline() {
                 className="relative"
               >
                 <div className="mx-auto h-16 w-16 rounded-2xl bg-[var(--gradient-brand)] grid place-items-center shadow-[var(--shadow-glow)] relative z-10">
-                  <t.icon className="h-6 w-6 text-white" />
+                  <t.icon className="h-6 w-6 text-primary-foreground" />
                 </div>
                 <div className="mt-5 text-center">
                   <div className="text-sm font-semibold">{t.title}</div>
@@ -1121,7 +1121,7 @@ function Contact() {
                   <textarea
                     name="message"
                     rows={4}
-                    className="w-full rounded-xl bg-white/[0.03] border border-white/10 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-[var(--brand-2)] focus:border-transparent transition"
+                    className="w-full rounded-xl bg-[rgba(240,180,41,0.05)] border border-[rgba(255,236,200,0.12)] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:border-transparent transition"
                     placeholder="Tell us about your sponsorship goals..."
                   />
                 </div>
@@ -1129,7 +1129,7 @@ function Contact() {
               <button
                 type="submit"
                 disabled={submitted}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition disabled:opacity-70"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-primary-foreground bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition disabled:opacity-70"
               >
                 {submitted ? (
                   <>
@@ -1176,7 +1176,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="w-full rounded-xl bg-white/[0.03] border border-white/10 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-[var(--brand-2)] focus:border-transparent transition"
+        className="w-full rounded-xl bg-[rgba(240,180,41,0.05)] border border-[rgba(255,236,200,0.12)] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:border-transparent transition"
       />
     </div>
   );
@@ -1186,12 +1186,12 @@ function Field({
 
 function Footer() {
   return (
-    <footer className="relative border-t border-white/10 mt-16">
+    <footer className="relative border-t border-[rgba(255,236,200,0.12)] mt-16">
       <div className="mx-auto max-w-7xl px-6 py-14 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-1">
           <div className="flex items-center gap-2">
             <div className="h-9 w-9 rounded-xl bg-[var(--gradient-brand)] grid place-items-center">
-              <Code2 className="h-5 w-5 text-white" />
+              <Code2 className="h-5 w-5 text-primary-foreground" />
             </div>
             <div className="leading-tight">
               <div className="text-sm font-bold">SRM InnovateX</div>
@@ -1248,13 +1248,13 @@ function Footer() {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-semibold text-white bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition"
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-semibold text-primary-foreground bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition"
           >
             Become Sponsor <ArrowRight className="h-3.5 w-3.5" />
           </a>
         </div>
       </div>
-      <div className="border-t border-white/10">
+      <div className="border-t border-[rgba(255,236,200,0.12)]">
         <div className="mx-auto max-w-7xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <div>© 2026 SRM InnovateX. All rights reserved.</div>
           <div className="flex gap-5">
@@ -1292,7 +1292,7 @@ function BackToTop() {
           exit={{ opacity: 0, y: 20 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Back to top"
-          className="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-[var(--gradient-brand)] text-white shadow-[var(--shadow-glow)] grid place-items-center hover:brightness-110 transition"
+          className="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-[var(--gradient-brand)] text-primary-foreground shadow-[var(--shadow-glow)] grid place-items-center hover:brightness-110 transition"
         >
           <ChevronUp className="h-5 w-5" />
         </motion.button>
