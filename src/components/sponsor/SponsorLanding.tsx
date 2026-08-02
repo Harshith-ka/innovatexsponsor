@@ -478,7 +478,7 @@ function WhySponsor() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-white/10 via-white/5 to-transparent glow-hover"
+              className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-[rgba(240,180,41,0.35)] via-[rgba(255,122,69,0.12)] to-transparent glow-hover"
             >
               <div className="relative h-full rounded-2xl bg-card p-6 overflow-hidden">
                 <div
@@ -687,7 +687,7 @@ function Packages() {
               className={`relative rounded-3xl p-[1px] ${
                 p.highlight
                   ? "bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)]"
-                  : "bg-gradient-to-b from-white/10 to-white/5"
+                  : "bg-gradient-to-b from-[rgba(240,180,41,0.25)] to-[rgba(255,122,69,0.08)]"
               }`}
             >
               <div className="relative h-full rounded-3xl bg-card p-6 flex flex-col">
@@ -808,7 +808,7 @@ function Timeline() {
         <div className="mt-16 relative">
           <div
             aria-hidden
-            className="absolute left-0 right-0 top-8 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent hidden lg:block"
+            className="absolute left-0 right-0 top-8 h-px bg-gradient-to-r from-transparent via-[rgba(240,180,41,0.35)] to-transparent hidden lg:block"
           />
           <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {TIMELINE.map((t, i) => (
