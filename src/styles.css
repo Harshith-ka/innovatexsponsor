@@ -40,45 +40,46 @@
 :root {
   --radius: 0.875rem;
 
-  /* SRM InnovateX brand palette */
-  --background: #050816;
-  --foreground: #ffffff;
+  /* SRM InnovateX brand palette — warm gold on deep charcoal */
+  --background: #0a0907;
+  --foreground: #fdfaf5;
 
-  --card: #0d1224;
-  --card-foreground: #ffffff;
+  --card: #14110d;
+  --card-foreground: #fdfaf5;
 
-  --popover: #0d1224;
-  --popover-foreground: #ffffff;
+  --popover: #14110d;
+  --popover-foreground: #fdfaf5;
 
-  --primary: #6d5ef9;
-  --primary-foreground: #ffffff;
+  --primary: #f0b429;
+  --primary-foreground: #1a1305;
 
-  --secondary: #131a35;
-  --secondary-foreground: #ffffff;
+  --secondary: #1d1913;
+  --secondary-foreground: #fdfaf5;
 
-  --muted: #131a35;
-  --muted-foreground: #a3aed0;
+  --muted: #1d1913;
+  --muted-foreground: #b9ab93;
 
-  --accent: #7b61ff;
-  --accent-foreground: #ffffff;
+  --accent: #ff7a45;
+  --accent-foreground: #1a1305;
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.1);
-  --ring: #7b61ff;
+  --border: rgba(255, 236, 200, 0.1);
+  --input: rgba(255, 236, 200, 0.12);
+  --ring: #f0b429;
 
-  --brand: #6d5ef9;
-  --brand-2: #7b61ff;
-  --blue-glow: #4f9dff;
-  --success: #22c55e;
+  --brand: #f0b429;
+  --brand-2: #ff7a45;
+  --blue-glow: #ffd166;
+  --success: #4ade80;
 
-  --gradient-brand: linear-gradient(135deg, #6d5ef9 0%, #7b61ff 45%, #4f9dff 100%);
-  --gradient-radial: radial-gradient(1200px 600px at 50% -10%, rgba(123, 97, 255, 0.35), transparent 60%);
-  --shadow-glow: 0 20px 80px -20px rgba(109, 94, 249, 0.55);
-  --shadow-elegant: 0 10px 40px -10px rgba(79, 157, 255, 0.35);
+  --gradient-brand: linear-gradient(135deg, #f0b429 0%, #ff9f1c 45%, #ff7a45 100%);
+  --gradient-radial: radial-gradient(1200px 600px at 50% -10%, rgba(240, 180, 41, 0.3), transparent 60%);
+  --shadow-glow: 0 20px 80px -20px rgba(240, 180, 41, 0.5);
+  --shadow-elegant: 0 10px 40px -10px rgba(255, 122, 69, 0.35);
 }
+
 
 @layer base {
   * {
@@ -93,12 +94,12 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(1200px 800px at 85% -10%, rgba(109, 94, 249, 0.18), transparent 60%),
-      radial-gradient(900px 600px at -10% 20%, rgba(79, 157, 255, 0.12), transparent 60%);
+      radial-gradient(1200px 800px at 85% -10%, rgba(240, 180, 41, 0.16), transparent 60%),
+      radial-gradient(900px 600px at -10% 20%, rgba(255, 122, 69, 0.12), transparent 60%);
     background-attachment: fixed;
   }
   ::selection {
-    background: rgba(109, 94, 249, 0.35);
+    background: rgba(240, 180, 41, 0.32);
     color: white;
   }
 }
@@ -128,7 +129,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(109, 94, 249, 0.6), rgba(79, 157, 255, 0.15), rgba(123, 97, 255, 0.6));
+    background: linear-gradient(135deg, rgba(240, 180, 41, 0.6), rgba(255, 209, 102, 0.15), rgba(255, 122, 69, 0.6));
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);

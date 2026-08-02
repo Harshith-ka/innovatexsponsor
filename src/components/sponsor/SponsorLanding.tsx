@@ -5,7 +5,6 @@ import {
   X,
   ArrowRight,
   Download,
-  Sparkles,
   Eye,
   Users,
   Network,
@@ -28,7 +27,7 @@ import {
   Github,
   ChevronDown,
   ChevronUp,
-  Cpu,
+  Layers,
   Palette,
   ShieldCheck,
   Globe,
@@ -83,7 +82,7 @@ function Navbar() {
       >
         <a href="#home" className="flex items-center gap-2 group">
           <div className="relative h-9 w-9 rounded-xl bg-[var(--gradient-brand)] grid place-items-center shadow-[var(--shadow-glow)]">
-            <Sparkles className="h-5 w-5 text-white" />
+            <Code2 className="h-5 w-5 text-white" />
           </div>
           <div className="leading-tight">
             <div className="text-sm font-bold tracking-tight">SRM InnovateX</div>
@@ -307,7 +306,7 @@ function Hero() {
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
             <div className="h-8 w-8 rounded-lg bg-[var(--gradient-brand)] grid place-items-center">
-              <Cpu className="h-4 w-4 text-white" />
+              <Code2 className="h-4 w-4 text-white" />
             </div>
             <div className="text-xs">
               <div className="font-semibold">AI Track</div>
@@ -506,12 +505,12 @@ function WhySponsor() {
 
 const ABOUT_STEPS = [
   {
-    icon: Sparkles,
+    icon: Trophy,
     title: "24 Hours of Pure Building",
     body: "A single continuous sprint from ideation to demo — food, energy drinks, and code included.",
   },
   {
-    icon: Cpu,
+    icon: Layers,
     title: "AI, FinTech, HealthTech, Climate",
     body: "Four flagship tracks plus an Open Innovation category to welcome every kind of builder.",
   },
@@ -1192,7 +1191,7 @@ function Footer() {
         <div className="md:col-span-1">
           <div className="flex items-center gap-2">
             <div className="h-9 w-9 rounded-xl bg-[var(--gradient-brand)] grid place-items-center">
-              <Sparkles className="h-5 w-5 text-white" />
+              <Code2 className="h-5 w-5 text-white" />
             </div>
             <div className="leading-tight">
               <div className="text-sm font-bold">SRM InnovateX</div>
@@ -1322,7 +1321,7 @@ function SectionHeader({
           align === "center" ? "" : ""
         }`}
       >
-        <Sparkles className="h-3 w-3 text-[var(--brand-2)]" />
+        <Star className="h-3 w-3 text-[var(--brand-2)]" />
         {eyebrow}
       </div>
       <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
