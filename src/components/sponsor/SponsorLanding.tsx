@@ -309,8 +309,9 @@ function Hero() {
               <Code2 className="h-4 w-4 text-primary-foreground" />
             </div>
             <div className="text-xs">
-              <div className="font-semibold">AI Track</div>
-              <div className="text-muted-foreground">Frontier Models</div>
+              <div className="font-semibold">Dev Track</div>
+              <div className="text-muted-foreground">24H Build Sprint</div>
+
             </div>
           </motion.div>
 
@@ -615,6 +616,12 @@ const PACKAGES = [
       "Community Reach",
       "Certificate of Partnership",
     ],
+    extras: [
+      "Listed in the partner directory",
+      "Mention in the post-event report",
+      "Access to event photo library",
+    ],
+    compare: { logo: "Small", booth: "—", stage: "—", talent: "—" },
     cta: "Contact Us",
   },
   {
@@ -628,6 +635,12 @@ const PACKAGES = [
       "Standard Booth",
       "Product Demo Slot",
     ],
+    extras: [
+      "3 dedicated social posts",
+      "10-minute product demo slot",
+      "Logo on participant certificates",
+    ],
+    compare: { logo: "Medium", booth: "Standard", stage: "—", talent: "Resume drop" },
     cta: "Contact Us",
   },
   {
@@ -644,6 +657,13 @@ const PACKAGES = [
       "Certificates for Team",
       "Featured on Website",
     ],
+    extras: [
+      "Co-branded challenge track with its own prize",
+      "Opening & closing ceremony keynote slot",
+      "Full participant resume book access",
+      "Dedicated email blast to all registrants",
+    ],
+    compare: { logo: "Largest", booth: "Premium", stage: "Keynote", talent: "Full resume book" },
     cta: "Become Title Sponsor",
   },
   {
@@ -658,11 +678,26 @@ const PACKAGES = [
       "Certificates",
       "Recruitment Access",
     ],
+    extras: [
+      "Workshop or mentoring session slot",
+      "Branded merchandise in swag kits",
+      "Shortlisted candidate introductions",
+    ],
+    compare: { logo: "Large", booth: "Standard+", stage: "Mention", talent: "Shortlist access" },
     cta: "Contact Us",
   },
 ];
 
+const COMPARE_ROWS: { key: keyof (typeof PACKAGES)[number]["compare"]; label: string }[] = [
+  { key: "logo", label: "Logo size" },
+  { key: "booth", label: "Booth" },
+  { key: "stage", label: "Stage time" },
+  { key: "talent", label: "Talent access" },
+];
+
 function Packages() {
+  const [expanded, setExpanded] = useState<string | null>(null);
+
   return (
     <section id="packages" className="relative py-24">
       <div className="mx-auto max-w-7xl px-6">
@@ -673,65 +708,125 @@ function Packages() {
               Pick a tier that <span className="gradient-text">fits your goals</span>
             </>
           }
-          subtitle="Every tier is flexible — talk to us about co-branded challenges, workshops, or custom activations."
+          subtitle="Hover a card to preview, expand it to compare every benefit side by side."
         />
 
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {PACKAGES.map((p, i) => (
-            <motion.div
-              key={p.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: i * 0.08, duration: 0.55 }}
-              className={`relative rounded-3xl p-[1px] ${
-                p.highlight
-                  ? "bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)]"
-                  : "bg-gradient-to-b from-[rgba(240,180,41,0.25)] to-[rgba(255,122,69,0.08)]"
-              }`}
-            >
-              <div className="relative h-full rounded-3xl bg-card p-6 flex flex-col">
-                {p.highlight && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[var(--gradient-brand)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-[var(--shadow-glow)]">
-                    Most Popular
-                  </span>
-                )}
-                <div className="text-xs text-muted-foreground uppercase tracking-wider">
-                  {p.tag}
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+          {PACKAGES.map((p, i) => {
+            const isOpen = expanded === p.name;
+            return (
+              <motion.div
+                key={p.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: i * 0.08, duration: 0.55 }}
+                whileHover={{ y: -8 }}
+                className={`group relative rounded-3xl p-[1px] transition-shadow duration-300 ${
+                  p.highlight
+                    ? "bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)]"
+                    : "bg-gradient-to-b from-[rgba(240,180,41,0.25)] to-[rgba(255,122,69,0.08)] hover:shadow-[var(--shadow-elegant)]"
+                }`}
+              >
+                <div className="relative h-full rounded-3xl bg-card p-6 flex flex-col overflow-hidden">
+                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(400px_200px_at_50%_0%,rgba(240,180,41,0.14),transparent_70%)]" />
+                  {p.highlight && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[var(--gradient-brand)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-[var(--shadow-glow)]">
+                      Most Popular
+                    </span>
+                  )}
+                  <div className="relative text-xs text-muted-foreground uppercase tracking-wider">
+                    {p.tag}
+                  </div>
+                  <h3 className="relative mt-1 text-xl font-bold">{p.name}</h3>
+                  <div className="relative mt-4 flex items-baseline gap-1">
+                    <span className="text-4xl font-extrabold gradient-text">{p.price}</span>
+                  </div>
+                  <ul className="relative mt-6 space-y-3 flex-1">
+                    {p.features.map((f) => (
+                      <li
+                        key={f}
+                        className="flex items-start gap-2 text-sm text-muted-foreground transition-colors group-hover:text-foreground/85"
+                      >
+                        <span className="mt-0.5 h-5 w-5 shrink-0 rounded-full bg-primary/15 grid place-items-center transition-colors group-hover:bg-primary/25">
+                          <Check className="h-3 w-3 text-[var(--brand-2)]" />
+                        </span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="details"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: "easeInOut" }}
+                        className="relative overflow-hidden"
+                      >
+                        <div className="mt-5 border-t border-[rgba(255,236,200,0.12)] pt-5">
+                          <div className="text-xs font-semibold uppercase tracking-wider text-[var(--brand)]">
+                            Also included
+                          </div>
+                          <ul className="mt-3 space-y-2">
+                            {p.extras.map((e) => (
+                              <li key={e} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand-2)]" />
+                                {e}
+                              </li>
+                            ))}
+                          </ul>
+                          <dl className="mt-5 space-y-2">
+                            {COMPARE_ROWS.map((r) => (
+                              <div
+                                key={r.key}
+                                className="flex items-center justify-between gap-3 rounded-xl bg-[rgba(240,180,41,0.06)] px-3 py-2 text-xs"
+                              >
+                                <dt className="text-muted-foreground">{r.label}</dt>
+                                <dd className="font-semibold text-foreground">{p.compare[r.key]}</dd>
+                              </div>
+                            ))}
+                          </dl>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  <button
+                    type="button"
+                    onClick={() => setExpanded(isOpen ? null : p.name)}
+                    aria-expanded={isOpen}
+                    className="relative mt-5 inline-flex items-center justify-center gap-1.5 rounded-full border border-[rgba(255,236,200,0.14)] px-4 py-2 text-xs font-semibold text-muted-foreground transition hover:text-foreground hover:border-[rgba(240,180,41,0.45)] hover:bg-[rgba(240,180,41,0.08)]"
+                  >
+                    {isOpen ? "Show less" : "Compare benefits"}
+                    <ChevronDown
+                      className={`h-3.5 w-3.5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+
+                  <a
+                    href="#contact"
+                    className={`relative mt-3 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition ${
+                      p.highlight
+                        ? "bg-[var(--gradient-brand)] text-primary-foreground hover:brightness-110 shadow-[var(--shadow-glow)]"
+                        : "glass text-foreground hover:bg-[rgba(240,180,41,0.08)]"
+                    }`}
+                  >
+                    {p.cta}
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
                 </div>
-                <h3 className="mt-1 text-xl font-bold">{p.name}</h3>
-                <div className="mt-4 flex items-baseline gap-1">
-                  <span className="text-4xl font-extrabold gradient-text">{p.price}</span>
-                </div>
-                <ul className="mt-6 space-y-3 flex-1">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="mt-0.5 h-5 w-5 shrink-0 rounded-full bg-primary/15 grid place-items-center">
-                        <Check className="h-3 w-3 text-[var(--brand-2)]" />
-                      </span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="#contact"
-                  className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition ${
-                    p.highlight
-                      ? "bg-[var(--gradient-brand)] text-primary-foreground hover:brightness-110 shadow-[var(--shadow-glow)]"
-                      : "glass text-foreground hover:bg-[rgba(240,180,41,0.08)]"
-                  }`}
-                >
-                  {p.cta}
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ----------------------------- Sponsor Benefits (icons timeline) ----- */
 
