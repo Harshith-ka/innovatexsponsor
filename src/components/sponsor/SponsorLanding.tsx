@@ -309,8 +309,9 @@ function Hero() {
               <Code2 className="h-4 w-4 text-primary-foreground" />
             </div>
             <div className="text-xs">
-              <div className="font-semibold">AI Track</div>
-              <div className="text-muted-foreground">Frontier Models</div>
+              <div className="font-semibold">Dev Track</div>
+              <div className="text-muted-foreground">24H Build Sprint</div>
+
             </div>
           </motion.div>
 
