@@ -81,8 +81,8 @@ function Navbar() {
         aria-label="Primary"
       >
         <a href="#home" className="flex items-center gap-2 group">
-          <div className="relative h-9 w-9 rounded-xl gradient-bg grid place-items-center shadow-[var(--shadow-glow)]">
-            <Code2 className="h-5 w-5 text-primary-foreground" />
+          <div className="relative h-9 w-9 rounded-xl bg-white grid place-items-center shadow-[var(--shadow-glow)] overflow-hidden p-0.5">
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="SRM InnovateX logo" className="h-full w-full object-contain" />
           </div>
           <div className="leading-tight">
             <div className="text-sm font-bold tracking-tight">SRM InnovateX</div>
@@ -1432,8 +1432,8 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-14 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-1">
           <div className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-xl gradient-bg grid place-items-center">
-              <Code2 className="h-5 w-5 text-primary-foreground" />
+            <div className="h-9 w-9 rounded-xl bg-white grid place-items-center overflow-hidden p-0.5">
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="SRM InnovateX logo" className="h-full w-full object-contain" />
             </div>
             <div className="leading-tight">
               <div className="text-sm font-bold">SRM InnovateX</div>
