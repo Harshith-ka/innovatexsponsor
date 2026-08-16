@@ -406,7 +406,7 @@ function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="text-center"
+              className={`text-center${i === STATS.length - 1 && STATS.length % 2 !== 0 ? " col-span-2 md:col-span-1" : ""}`}
             >
               <div className="text-3xl sm:text-4xl font-extrabold gradient-text tracking-tight">
                 <Counter to={s.value} suffix={s.suffix} prefix={s.prefix} />
@@ -968,7 +968,7 @@ function Gallery() {
                 src={g.src}
                 alt={g.alt}
                 loading="lazy"
-                className={`w-full ${g.h} object-cover blur-sm scale-105 group-hover:blur-0 group-hover:scale-100 transition-all duration-700`}
+                className={`w-full ${g.h} object-cover scale-100 group-hover:scale-105 transition-all duration-700`}
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             </motion.div>
