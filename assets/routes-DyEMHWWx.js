@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/SponsorLanding-CBl6QVfl.js","assets/index-D13TKNKr.js"])))=>i.map(i=>d[i]);
+import{n as e,r as t,s as n,t as r}from"./index-D13TKNKr.js";var i=n(t()),a=e(),o=(0,i.lazy)(()=>r(()=>import(`./SponsorLanding-CBl6QVfl.js`),__vite__mapDeps([0,1])));function s(){return(0,a.jsx)(i.Suspense,{fallback:(0,a.jsx)(`div`,{className:`min-h-screen bg-background`}),children:(0,a.jsx)(o,{})})}export{s as component};
