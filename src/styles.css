@@ -111,6 +111,10 @@
   color: transparent;
 }
 
+@utility gradient-bg {
+  background: var(--gradient-brand);
+}
+
 @utility glass {
   background: linear-gradient(180deg, rgba(255, 209, 102, 0.05), rgba(255, 122, 69, 0.025));
   border: 1px solid rgba(255, 236, 200, 0.1);

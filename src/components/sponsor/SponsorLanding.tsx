@@ -81,7 +81,7 @@ function Navbar() {
         aria-label="Primary"
       >
         <a href="#home" className="flex items-center gap-2 group">
-          <div className="relative h-9 w-9 rounded-xl bg-[var(--gradient-brand)] grid place-items-center shadow-[var(--shadow-glow)]">
+          <div className="relative h-9 w-9 rounded-xl gradient-bg grid place-items-center shadow-[var(--shadow-glow)]">
             <Code2 className="h-5 w-5 text-primary-foreground" />
           </div>
           <div className="leading-tight">
@@ -108,7 +108,7 @@ function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-primary-foreground bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition"
+            className="group relative inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-primary-foreground gradient-bg shadow-[var(--shadow-glow)] hover:brightness-110 transition"
           >
             Become Sponsor
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -149,7 +149,7 @@ function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-primary-foreground bg-[var(--gradient-brand)]"
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-primary-foreground gradient-bg"
               >
                 Become Sponsor <ArrowRight className="h-4 w-4" />
               </a>
@@ -208,7 +208,7 @@ function Hero() {
             className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-muted-foreground"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--success)] pulse-glow" />
-            National-Level 24 Hour Hackathon · March 2026
+            National-Level 24 Hour Hackathon · September 2026
           </motion.div>
 
           <motion.h1
@@ -239,7 +239,7 @@ function Hero() {
           >
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-primary-foreground bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition"
+              className="group inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-primary-foreground gradient-bg shadow-[var(--shadow-glow)] hover:brightness-110 transition"
             >
               Become a Sponsor
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -305,7 +305,7 @@ function Hero() {
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <div className="h-8 w-8 rounded-lg bg-[var(--gradient-brand)] grid place-items-center">
+            <div className="h-8 w-8 rounded-lg gradient-bg grid place-items-center">
               <Code2 className="h-4 w-4 text-primary-foreground" />
             </div>
             <div className="text-xs">
@@ -320,11 +320,11 @@ function Hero() {
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
           >
-            <div className="h-8 w-8 rounded-lg bg-[var(--gradient-brand)] grid place-items-center">
+            <div className="h-8 w-8 rounded-lg gradient-bg grid place-items-center">
               <Trophy className="h-4 w-4 text-primary-foreground" />
             </div>
             <div className="text-xs">
-              <div className="font-semibold">₹50K+ Prize</div>
+              <div className="font-semibold">₹60K Prize</div>
               <div className="text-muted-foreground">Grand Pool</div>
             </div>
           </motion.div>
@@ -388,7 +388,7 @@ const STATS = [
   { value: 50, suffix: "+", label: "Teams" },
   { value: 20, suffix: "+", label: "Colleges" },
   { value: 24, suffix: "H", label: "Non-stop Build" },
-  { value: 50, suffix: "K+", prefix: "₹", label: "Prize Pool" },
+  { value: 60, suffix: "K", prefix: "₹", label: "Prize Pool" },
 ];
 
 function Stats() {
@@ -487,9 +487,13 @@ function WhySponsor() {
                   className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"
                 />
                 <div className="relative">
-                  <div className="h-11 w-11 rounded-xl bg-[var(--gradient-brand)] grid place-items-center shadow-[var(--shadow-glow)]">
-                    <w.icon className="h-5 w-5 text-primary-foreground" />
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-xl bg-primary/30 blur-lg opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
+                    <div className="relative h-11 w-11 rounded-xl gradient-bg grid place-items-center shadow-[var(--shadow-glow)]">
+                      <w.icon className="h-5 w-5 text-primary-foreground" />
+                    </div>
                   </div>
+                  <div className="pointer-events-none absolute -bottom-2 -right-2 h-20 w-20 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <h3 className="mt-5 text-lg font-semibold">{w.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{w.body}</p>
                 </div>
@@ -512,8 +516,8 @@ const ABOUT_STEPS = [
   },
   {
     icon: Layers,
-    title: "AI, FinTech, HealthTech, Climate",
-    body: "Four flagship tracks plus an Open Innovation category to welcome every kind of builder.",
+    title: "AgriTech, FinTech, EduTech, Sustainability",
+    body: "Four focused tracks plus an Open Innovation category to welcome every kind of builder.",
   },
   {
     icon: ShieldCheck,
@@ -589,7 +593,7 @@ function About() {
                 transition={{ delay: i * 0.08, duration: 0.5 }}
                 className="relative"
               >
-                <span className="absolute -left-[34px] top-1 grid h-6 w-6 place-items-center rounded-full bg-[var(--gradient-brand)] ring-4 ring-background">
+                <span className="absolute -left-[34px] top-1 grid h-6 w-6 place-items-center rounded-full gradient-bg ring-4 ring-background">
                   <s.icon className="h-3 w-3 text-primary-foreground" />
                 </span>
                 <h3 className="text-lg font-semibold">{s.title}</h3>
@@ -607,19 +611,20 @@ function About() {
 
 const PACKAGES = [
   {
-    name: "Community Partner",
-    price: "In-kind",
-    tag: "Non-monetary",
+    name: "Community Sponsor",
+    price: "₹5,000",
+    tag: "Entry Level",
+    icon: "🤝",
     features: [
       "Logo on Website",
       "Social Media Shoutout",
-      "Community Reach",
-      "Certificate of Partnership",
+      "Certificate of Appreciation",
+      "Listed in Partner Directory",
     ],
     extras: [
-      "Listed in the partner directory",
-      "Mention in the post-event report",
+      "Mention in post-event report",
       "Access to event photo library",
+      "Community newsletter feature",
     ],
     compare: { logo: "Small", booth: "—", stage: "—", talent: "—" },
     cta: "Contact Us",
@@ -627,61 +632,64 @@ const PACKAGES = [
   {
     name: "Silver Sponsor",
     price: "₹10,000",
-    tag: "Great to start",
+    tag: "Great to Start",
+    icon: "🥈",
     features: [
       "Logo on Website & Posters",
-      "Social Media Promotions",
-      "Certificate",
-      "Standard Booth",
-      "Product Demo Slot",
+      "3 Dedicated Social Media Posts",
+      "Certificate & Logo on Participant Certs",
+      "Standard Exhibition Booth",
+      "10-min Product Demo Slot",
     ],
     extras: [
-      "3 dedicated social posts",
-      "10-minute product demo slot",
-      "Logo on participant certificates",
+      "Logo on banners and standees",
+      "Mention during opening ceremony",
+      "Post-event digital thank-you",
     ],
-    compare: { logo: "Medium", booth: "Standard", stage: "—", talent: "Resume drop" },
+    compare: { logo: "Medium", booth: "Standard", stage: "Mention", talent: "Resume drop" },
     cta: "Contact Us",
   },
   {
     name: "Title Sponsor",
-    price: "₹25,000+",
+    price: "₹35,000",
     tag: "Recommended",
+    icon: "👑",
     highlight: true,
     features: [
-      "Largest Logo Placement",
-      "Stage Mention & Recognition",
-      "Judge Nomination Slot",
-      "Premium Booth",
+      "Largest Logo — Event Name Co-brand",
+      "Opening & Closing Keynote Slot",
+      "Judge Nomination",
+      "Co-branded Challenge Track",
+      "Full Participant Resume Book",
+      "Premium Exhibition Booth",
       "All Social Media Channels",
-      "Certificates for Team",
-      "Featured on Website",
     ],
     extras: [
       "Co-branded challenge track with its own prize",
-      "Opening & closing ceremony keynote slot",
-      "Full participant resume book access",
       "Dedicated email blast to all registrants",
+      "Banner + stage backdrop branding",
+      "Priority recruitment access",
     ],
     compare: { logo: "Largest", booth: "Premium", stage: "Keynote", talent: "Full resume book" },
     cta: "Become Title Sponsor",
   },
   {
     name: "Gold Sponsor",
-    price: "₹15,000",
+    price: "₹20,000",
     tag: "Popular",
+    icon: "🥇",
     features: [
       "Prominent Logo Placement",
-      "Stage Mention",
-      "Standard Booth",
-      "Social Media Promotions",
-      "Certificates",
-      "Recruitment Access",
+      "Stage Mention & Recognition",
+      "Workshop / Mentoring Session Slot",
+      "Branded Merchandise in Swag Kits",
+      "Recruitment Access + Shortlist",
+      "All Silver Benefits",
     ],
     extras: [
-      "Workshop or mentoring session slot",
-      "Branded merchandise in swag kits",
+      "5 dedicated social posts",
       "Shortlisted candidate introductions",
+      "On-site booth with branding",
     ],
     compare: { logo: "Large", booth: "Standard+", stage: "Mention", talent: "Shortlist access" },
     cta: "Contact Us",
@@ -724,19 +732,20 @@ function Packages() {
                 whileHover={{ y: -8 }}
                 className={`group relative rounded-3xl p-[1px] transition-shadow duration-300 ${
                   p.highlight
-                    ? "bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)]"
+                    ? "gradient-bg shadow-[var(--shadow-glow)]"
                     : "bg-gradient-to-b from-[rgba(240,180,41,0.25)] to-[rgba(255,122,69,0.08)] hover:shadow-[var(--shadow-elegant)]"
                 }`}
               >
                 <div className="relative h-full rounded-3xl bg-card p-6 flex flex-col overflow-hidden">
                   <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(400px_200px_at_50%_0%,rgba(240,180,41,0.14),transparent_70%)]" />
                   {p.highlight && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[var(--gradient-brand)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-[var(--shadow-glow)]">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full gradient-bg px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-[var(--shadow-glow)]">
                       Most Popular
                     </span>
                   )}
-                  <div className="relative text-xs text-muted-foreground uppercase tracking-wider">
-                    {p.tag}
+                  <div className="relative flex items-center justify-between">
+                    <div className="text-xs text-muted-foreground uppercase tracking-wider">{p.tag}</div>
+                    {"icon" in p && <span className="text-2xl">{(p as any).icon}</span>}
                   </div>
                   <h3 className="relative mt-1 text-xl font-bold">{p.name}</h3>
                   <div className="relative mt-4 flex items-baseline gap-1">
@@ -810,7 +819,7 @@ function Packages() {
                     href="#contact"
                     className={`relative mt-3 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition ${
                       p.highlight
-                        ? "bg-[var(--gradient-brand)] text-primary-foreground hover:brightness-110 shadow-[var(--shadow-glow)]"
+                        ? "gradient-bg text-primary-foreground hover:brightness-110 shadow-[var(--shadow-glow)]"
                         : "glass text-foreground hover:bg-[rgba(240,180,41,0.08)]"
                     }`}
                   >
@@ -827,6 +836,74 @@ function Packages() {
   );
 }
 
+
+/* ----------------------------- In-Kind Sponsorship --------------------- */
+
+const IN_KIND = [
+  { icon: "🍕", label: "Food & Refreshments", desc: "Sponsor meals, snacks, and energy drinks for 200+ participants." },
+  { icon: "🧢", label: "Caps & Merchandise", desc: "Branded caps, hoodies, or apparel for all participants." },
+  { icon: "🎁", label: "Goodies & Swag", desc: "Gadgets, kits, or branded goody bags in the swag packs." },
+  { icon: "🖨️", label: "Printing & Banners", desc: "Event banners, certificates, posters and standees." },
+  { icon: "☁️", label: "Cloud / API Credits", desc: "AWS, GCP, Azure credits or API access for participants to build with." },
+  { icon: "💻", label: "Software Subscriptions", desc: "Dev tools, licenses, SaaS products, or IDE subscriptions." },
+  { icon: "🏆", label: "Awards & Trophies", desc: "Sponsor the winner trophies, shields and medals." },
+  { icon: "🎟️", label: "Vouchers & Gift Cards", desc: "E-commerce, food delivery, or platform vouchers for participants." },
+];
+
+function InKindSponsorship() {
+  return (
+    <section className="relative py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeader
+          eyebrow="In-Kind Sponsorship"
+          title={
+            <>
+              Not cash? <span className="gradient-text">Contribute in kind</span>
+            </>
+          }
+          subtitle="No monetary budget? We welcome in-kind contributions — sponsor an experience, a meal, or a product that participants will love."
+        />
+
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {IN_KIND.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: i * 0.05, duration: 0.5 }}
+              className="glass rounded-2xl p-5 glow-hover group relative overflow-hidden"
+            >
+              <div
+                aria-hidden
+                className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-primary/8 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              />
+              <div className="relative flex items-start gap-4">
+                <div className="text-3xl shrink-0">{item.icon}</div>
+                <div>
+                  <div className="text-sm font-semibold">{item.label}</div>
+                  <div className="mt-1 text-xs text-muted-foreground leading-relaxed">{item.desc}</div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-sm text-muted-foreground max-w-md mx-auto">
+            All in-kind sponsors receive website acknowledgment, social media mentions, and a certificate of appreciation.
+          </p>
+          <a
+            href="#contact"
+            className="mt-5 inline-flex items-center gap-2 rounded-full gradient-bg text-primary-foreground shadow-[var(--shadow-glow)] px-6 py-3 text-sm font-semibold hover:brightness-110 transition"
+          >
+            Discuss In-Kind Sponsorship <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ----------------------------- Sponsor Benefits (icons timeline) ----- */
 
@@ -865,7 +942,7 @@ function Benefits() {
               transition={{ delay: i * 0.05, duration: 0.45 }}
               className="glass rounded-2xl p-5 flex flex-col items-start gap-3 glow-hover"
             >
-              <div className="h-10 w-10 rounded-xl bg-[var(--gradient-brand)] grid place-items-center">
+              <div className="h-10 w-10 rounded-xl gradient-bg grid place-items-center">
                 <b.icon className="h-4 w-4 text-primary-foreground" />
               </div>
               <div className="text-sm font-medium">{b.label}</div>
@@ -880,11 +957,11 @@ function Benefits() {
 /* ------------------------------- Timeline ------------------------------- */
 
 const TIMELINE = [
-  { icon: Calendar, title: "Registration", date: "Jan – Feb 2026" },
-  { icon: Mic, title: "Opening Ceremony", date: "Day 1 · 10:00 AM" },
-  { icon: Code2, title: "24 Hour Build", date: "Day 1 – Day 2" },
-  { icon: ShieldCheck, title: "Judging", date: "Day 2 · Afternoon" },
-  { icon: Trophy, title: "Awards Ceremony", date: "Day 2 · Evening" },
+  { icon: Calendar, title: "Registration", date: "Aug – Sep 10, 2026" },
+  { icon: Mic, title: "Opening Ceremony", date: "Sep 19 · 09:00 AM" },
+  { icon: Code2, title: "24 Hour Build", date: "Sep 19 – Sep 20" },
+  { icon: ShieldCheck, title: "Judging", date: "Sep 20 · Afternoon" },
+  { icon: Trophy, title: "Awards Ceremony", date: "Sep 20 · Evening" },
 ];
 
 function Timeline() {
@@ -915,7 +992,7 @@ function Timeline() {
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className="relative"
               >
-                <div className="mx-auto h-16 w-16 rounded-2xl bg-[var(--gradient-brand)] grid place-items-center shadow-[var(--shadow-glow)] relative z-10">
+                <div className="mx-auto h-16 w-16 rounded-2xl gradient-bg grid place-items-center shadow-[var(--shadow-glow)] relative z-10">
                   <t.icon className="h-6 w-6 text-primary-foreground" />
                 </div>
                 <div className="mt-5 text-center">
@@ -1115,7 +1192,7 @@ function Testimonials() {
                 &ldquo;{t.body}&rdquo;
               </blockquote>
               <figcaption className="mt-auto flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-[var(--gradient-brand)] grid place-items-center text-sm font-bold">
+                <div className="h-10 w-10 rounded-full gradient-bg grid place-items-center text-sm font-bold">
                   {t.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
                 </div>
                 <div>
@@ -1126,6 +1203,76 @@ function Testimonials() {
             </motion.figure>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------- Current Sponsors --------------------------- */
+
+const CURRENT_SPONSORS = [
+  {
+    name: "Paryan Technologies Private Limited",
+    type: "Financial Sponsor",
+    contribution: "₹15,000 cash sponsorship",
+    description: "Providing financial support to fuel prizes, venue operations, and event infrastructure.",
+    icon: "🏢",
+    color: "from-primary/20 to-accent/10",
+  },
+  {
+    name: "Big Bucks Innovation Private Limited",
+    type: "Product & Talent Partner",
+    contribution: "₹2,000 participant vouchers + internships",
+    description: "Offering vouchers for all registered participants plus software and IoT internship opportunities for top performers.",
+    icon: "💡",
+    color: "from-accent/20 to-primary/10",
+  },
+];
+
+function CurrentSponsors() {
+  return (
+    <section className="relative py-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeader
+          eyebrow="Current Partners"
+          title={
+            <>
+              Proudly backed by <span className="gradient-text">industry leaders</span>
+            </>
+          }
+          subtitle="Join these forward-thinking organizations already committed to powering InnovateX 2026."
+        />
+        <div className="mt-12 grid md:grid-cols-2 gap-6">
+          {CURRENT_SPONSORS.map((s, i) => (
+            <motion.div
+              key={s.name}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: i * 0.1, duration: 0.55 }}
+              className="glass rounded-3xl p-6 sm:p-8 glow-hover group relative overflow-hidden"
+            >
+              <div
+                aria-hidden
+                className={`pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-gradient-to-br ${s.color} blur-3xl opacity-30 group-hover:opacity-60 transition-opacity duration-500`}
+              />
+              <div className="relative flex items-start gap-5">
+                <div className="text-4xl shrink-0">{s.icon}</div>
+                <div className="flex-1">
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">{s.type}</div>
+                  <h3 className="mt-1 text-lg font-bold">{s.name}</h3>
+                  <div className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
+                    <Check className="h-3 w-3" /> {s.contribution}
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.description}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <p className="mt-8 text-center text-sm text-muted-foreground">
+          More partnerships being finalized — reach out to join this list.
+        </p>
       </div>
     </section>
   );
@@ -1186,7 +1333,7 @@ function Contact() {
                   </div>
                   <div>
                     <div className="text-muted-foreground">Venue</div>
-                    <div className="font-medium">SRM Institute, Kattankulathur, TN</div>
+                    <div className="font-medium">SRM University, Ramapuram, Chennai</div>
                   </div>
                 </div>
               </div>
@@ -1224,7 +1371,7 @@ function Contact() {
               <button
                 type="submit"
                 disabled={submitted}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-primary-foreground bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition disabled:opacity-70"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-primary-foreground gradient-bg shadow-[var(--shadow-glow)] hover:brightness-110 transition disabled:opacity-70"
               >
                 {submitted ? (
                   <>
@@ -1285,7 +1432,7 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-14 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-1">
           <div className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-xl bg-[var(--gradient-brand)] grid place-items-center">
+            <div className="h-9 w-9 rounded-xl gradient-bg grid place-items-center">
               <Code2 className="h-5 w-5 text-primary-foreground" />
             </div>
             <div className="leading-tight">
@@ -1331,7 +1478,7 @@ function Footer() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>sponsors@srminnovatex.in</li>
             <li>+91 98765 43210</li>
-            <li>SRM Institute, Kattankulathur</li>
+            <li>SRM University, Ramapuram</li>
             <li>Tamil Nadu, India</li>
           </ul>
         </div>
@@ -1343,7 +1490,7 @@ function Footer() {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-semibold text-primary-foreground bg-[var(--gradient-brand)] shadow-[var(--shadow-glow)] hover:brightness-110 transition"
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-semibold text-primary-foreground gradient-bg shadow-[var(--shadow-glow)] hover:brightness-110 transition"
           >
             Become Sponsor <ArrowRight className="h-3.5 w-3.5" />
           </a>
@@ -1387,7 +1534,7 @@ function BackToTop() {
           exit={{ opacity: 0, y: 20 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Back to top"
-          className="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-[var(--gradient-brand)] text-primary-foreground shadow-[var(--shadow-glow)] grid place-items-center hover:brightness-110 transition"
+          className="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full gradient-bg text-primary-foreground shadow-[var(--shadow-glow)] grid place-items-center hover:brightness-110 transition"
         >
           <ChevronUp className="h-5 w-5" />
         </motion.button>
@@ -1441,11 +1588,13 @@ export default function SponsorLanding() {
         <WhySponsor />
         <About />
         <Packages />
+        <InKindSponsorship />
         <Benefits />
         <Timeline />
         <Gallery />
         <Faq />
         <Testimonials />
+        <CurrentSponsors />
         <Contact />
       </main>
       <Footer />
